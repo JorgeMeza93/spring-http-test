@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.dev4.models.User;
@@ -38,6 +39,16 @@ public class UserService {
 		}
 		usuarios.add(user);
 		return user;
+	}
+	public User updateUser(User userActualizado, String userName) {
+		User userToBeUpdated = getUserByUserName(userName);
+		userToBeUpdated.setEmail(userActualizado.getEmail());
+		userToBeUpdated.setPassword(userActualizado.getPassword());
+		return userToBeUpdated;
+	}
+	public void deleteUser(String username) {
+		User userByUsername = getUserByUserName(username);
+		usuarios.remove(userByUsername);
 	}
 	
 }
