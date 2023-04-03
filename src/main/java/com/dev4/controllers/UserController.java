@@ -48,8 +48,8 @@ public class UserController {
 		userService.deleteUser(username);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
-	@GetMapping
-	public ResponseEntity<List<User>> getUsers(@RequestParam("startswith") String startsWith){
+	@GetMapping("/param")
+	public ResponseEntity<List<User>> getUsers(@RequestParam(required = false, value="startswith") String startsWith){
 		return new ResponseEntity<List<User>>(userService.getUsersParam(startsWith), HttpStatus.OK);
 	}
 	
