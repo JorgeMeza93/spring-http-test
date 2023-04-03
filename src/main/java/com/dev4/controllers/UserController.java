@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev4.models.User;
@@ -46,7 +47,10 @@ public class UserController {
 	public ResponseEntity<Void> deleteUser(@PathVariable("username") String username){
 		userService.deleteUser(username);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	
+	}
+	@GetMapping
+	public ResponseEntity<List<User>> getUsers(@RequestParam("startswith") String startsWith){
+		return new ResponseEntity<List<User>>(userService.getUsersParam(startsWith), HttpStatus.OK);
 	}
 	
 	
