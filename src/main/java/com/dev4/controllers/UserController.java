@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,7 @@ import com.dev4.models.User;
 import com.dev4.services.UserService;
 
 @RestController
-@RequestMapping("/usuarios")   // Definición del recurso
+@RequestMapping("/v1/usuarios")   // Definición del recurso
 public class UserController {
 	
 	@Autowired
