@@ -25,4 +25,11 @@ public class UserServicePoblado {
 				String.format("Usuario con id %d no encontrado", id)) );
 		
 	}
+	
+	public User getUserByUsername(String userName) {
+		return userRepository.findByUsername(userName).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+				String.format("Usuario con username %s no encontrado", userName)));
+					
+	}
+	
 }

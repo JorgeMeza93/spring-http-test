@@ -26,5 +26,8 @@ public class UserControllerPoblado {
 	public ResponseEntity<User> getUserById(@PathVariable("userId") Integer userId){
 		return new ResponseEntity<User>(userService.getUserById(userId), HttpStatus.OK);
 	}
-	
+	@GetMapping("/user/{username}")
+	public ResponseEntity<User> getUserByUsername(@PathVariable("username") String username){
+		return new ResponseEntity<User>(userService.getUserByUsername(username), HttpStatus.OK);
+	}
 }
