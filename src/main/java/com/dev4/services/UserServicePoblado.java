@@ -1,6 +1,4 @@
-package com.dev4.controllers;
-
-import java.util.List;
+package com.dev4.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,6 +31,10 @@ public class UserServicePoblado {
 		return userRepository.findByUsername(userName).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,
 				String.format("Usuario con username %s no encontrado", userName)));
 					
+	}
+	
+	public Page<String> getUsernames(int page, int size){
+		return userRepository.findUsernames(PageRequest.of(page, size));
 	}
 	
 }
