@@ -24,7 +24,7 @@ public class SpringBootDev4Application implements ApplicationRunner{
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		for(int i = 0; i<10; i++) {
+		for(int i = 0; i<100; i++) {
 			User usuario = new User();
 			usuario.setUsername(faker.dragonBall().character());
 			usuario.setPassword(faker.color().hex());
